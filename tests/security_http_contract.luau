@@ -1,0 +1,8 @@
+local response = request({Url="https://economy.roblox.com/v1/user/currency", Method="GET"})
+assert(response.StatusCode == 401 or response.StatusCode == 403, "HTTP transport was not conclusively anonymous: " .. tostring(response.StatusCode))
+assert(not response.Body:match('^%s*{%s*"robux"'), "HTTP transport inherited account authorization")
+local ok, problem = pcall(function() return game:HttpGet("https://economy.roblox.com/v1/user/currency") end)
+assert(not ok and (tostring(problem):find("HTTP 401", 1, true) or tostring(problem):find("HTTP 403", 1, true)), "HttpGet was not anonymous")
+local source = game:HttpGet("https://raw.githubusercontent.com/aihkw/exe-test/main/executor_vuln_test.lua")
+assert(source:find("Executor Vulnerability Check", 1, true), "ordinary public HTTPS fetch failed")
+print("SECURITY_HTTP_OK", "anonymous", response.StatusCode, "public source", #source)
