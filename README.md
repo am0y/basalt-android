@@ -21,7 +21,7 @@
   <a href="#build">Build</a> ·
   <a href="#features">Features</a> ·
   <a href="STATUS.md">Status</a> ·
-  <a href="CONTRIBUTING.md">Contributing</a>
+  <a href="CONTRIBUTING.md">Contributing</a> ·
   <a href="https://discord.gg/basalt">Discord Server</a>
 </p>
 
